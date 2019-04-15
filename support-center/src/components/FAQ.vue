@@ -19,7 +19,6 @@ export default {
     })
   ],
   created() {
-    console.log("xxxxxxxx", this.$state);
   }
 };
 </script>

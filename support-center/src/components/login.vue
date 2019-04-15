@@ -73,7 +73,8 @@ export default {
           password: this.password
         })
       });
-      this.$router.push({ name: "home" });
+      // this.$router.push({ name: "home" });
+      this.$router.replace(this.$route.params.wantedRoute);
     },
     async signup() {
       console.log("123");

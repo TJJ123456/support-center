@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 const routes = [
     { path: '/', name: 'home', component: Home },
     { path: '/faq', name: 'faq', component: FAQ },
-    { path: '/login', name: 'login', component: Login },
+    { path: '/login', name: 'login', component: Login, meta: { guest: true } },
     { path: '/tickets', name: 'tickets', component: TicketsLayout, meta: { private: true } }
 ]
 
@@ -20,13 +20,17 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    console.log('to', to.name);
-    console.log(state.user);
+    console.log('to', to.name, to.meta.private);
     if (to.meta.private && !state.user) {
-        next({ name: 'login' });
+        next({ name: 'login', params: { wantedRoute: to.fullPath } });
         return;
     }
-    console.log('???')
+    console.log('xxxxxxxxxxxxxxxxx', to.meta.guest, state.user);
+    if (to.meta.guest && state.user) {
+        next({ name: 'home' });
+        return;
+    }
+    next();
 })
 
 export default router;
