@@ -12,7 +12,7 @@ export const Questions = modelFactory(collectionFactory('questions', idIndex))
 // Init
 export async function initData () {
   // FAQ
-  Questions.remove({}, {}, true)
+  Questions.remove({}, {}, false)
   Questions.insert([
     {
       title: 'Where is my order?',
