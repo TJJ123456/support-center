@@ -30,7 +30,7 @@ export default function (resources) {
                 let url = resources[key];
                 if (typeof url === 'function') {
                     this.$watch(url, (val) => {
-                        this.fetchResource(key, val);
+                        this.fetchResource(key, val)
                     }, {
                             immediate: true,
                         })

@@ -6,15 +6,17 @@
       </div>
       <div>My shirt shop</div>
     </header>
-    <NavMenu />
-    <router-view/>
+    <NavMenu/>
+    <transition name="fade" mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 <script>
 import NavMenu from "./NavMenu.vue";
 export default {
   components: {
-    NavMenu,
+    NavMenu
   }
 };
 </script>

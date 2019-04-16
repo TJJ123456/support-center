@@ -3,7 +3,7 @@
     <h2>Ticket</h2>
     <Loading v-if="remoteDataBusy"/>
     <div class="empty" v-else-if="!ticket">没有找到这个票</div>
-    <template>
+    <template v-else>
       <section class="infos">
         <div class="info">
           创建时间
